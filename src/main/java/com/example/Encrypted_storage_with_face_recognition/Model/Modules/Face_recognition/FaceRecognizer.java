@@ -7,8 +7,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.openimaj.image.ImageUtilities;
 import org.openimaj.image.processing.face.detection.DetectedFace;
 import org.openimaj.image.processing.face.detection.HaarCascadeDetector;
+import org.openimaj.image.processing.face.detection.benchmarking.Matcher;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Setter
@@ -17,9 +21,9 @@ import java.util.List;
 public class FaceRecognizer {
     private HaarCascadeDetector faceDetector = new HaarCascadeDetector();
 
-    public DetectedFace detectFace(){
+    public List<DetectedFace> detectFace() throws IOException {
         BufferedImage faceImage = FaceGetter.getFaceImage();
-
+        //ImageIO.write(faceImage, "PNG", new File("hello-world.png"));
         try {
             assert faceImage != null;
             List<DetectedFace> detectedFaces = faceDetector.detectFaces(ImageUtilities.createFImage(faceImage));
@@ -29,12 +33,21 @@ public class FaceRecognizer {
                 return null;
             }
             else {
-                return detectedFaces.get(0);
+
+                ImageIO.write(ImageUtilities.createBufferedImage(detectedFaces.get(0).getFacePatch()), "PNG", new File("hello-world2.png"));
+                return detectedFaces;
             }
         }
         catch (Exception e){
             log.error(e.getMessage());
             return null;
         }
+    }
+
+    public double compareFaceWithGroundTruth(List<DetectedFace> detectedFaces){
+        //get decrypted list of registered faces
+        //Matcher match
+        //compare detectedFaces (which size is 1) to all the registered faces and return the average score of comparing
+        return 0;
     }
 }
