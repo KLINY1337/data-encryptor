@@ -1,23 +1,20 @@
-package com.example.Encrypted_storage_with_face_recognition.Model.Modules.Get_face;
+package com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face_getting;
 
 import com.github.sarxos.webcam.Webcam;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 @Setter
 @Getter
 @Slf4j
 public class FaceGetter {
 
-    Webcam webcam = Webcam.getDefault();
+    static Webcam webcam = Webcam.getDefault();
 
-    public BufferedImage getFaceImage(){
+    public static BufferedImage getFaceImage(){
         try {
             webcam.open();
             return webcam.getImage();

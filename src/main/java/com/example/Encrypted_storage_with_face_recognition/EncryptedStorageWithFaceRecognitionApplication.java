@@ -1,5 +1,7 @@
 package com.example.Encrypted_storage_with_face_recognition;
 
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face_getting.FaceGetter;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face_recognition.FaceRecognizer;
 import com.github.sarxos.webcam.Webcam;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,10 +15,8 @@ public class EncryptedStorageWithFaceRecognitionApplication {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(EncryptedStorageWithFaceRecognitionApplication.class, args);
-		Webcam webcam = Webcam.getDefault();
-		webcam.open();
-		ImageIO.write(webcam.getImage(),"PNG", new File("hello-world.png"));
-		webcam.close();
+		FaceRecognizer faceRecognizer = new FaceRecognizer();
+		System.out.println(faceRecognizer.detectFace());
 	}
 
 }
