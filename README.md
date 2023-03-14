@@ -34,10 +34,10 @@
     <img src="for-introduction/logo.png" alt="Logo" width="240" height="240">
   </a>
 
-  <h3 align="center">Your Personal Secured Data Storage</h3>
+  <h3 align="center">face-vault-spring-application</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Your Personal Secured Data Storage
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
