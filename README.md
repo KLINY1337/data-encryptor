@@ -34,10 +34,10 @@
     <img src="for-introduction/logo.png" alt="Logo" width="240" height="240">
   </a>
 
-<h3 align="center">face-vault-spring-application</h3>
+<h3 align="center">Your Personal Secured Data Storage!</h3>
 
   <p align="center">
-    Your Personal Secured Data Storage!
+    face-vault-spring-application
     <br />
     <a href="https://github.com/KLINY1337/data-storage-with-face-recognition-authorization"><strong>Explore the docs »</strong></a>
     <br />
