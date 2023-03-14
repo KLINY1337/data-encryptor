@@ -89,17 +89,19 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 ### Built With
-* [![Vue][Vue.js]][Vue-url]
+* [![Spring][Spring.js]][Spring-url]
 * [![Maven][Maven.js]][Maven-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built With
-* [![Spring][Spring.js]][Spring-url]
-* [![Maven][Maven.js]][Maven-url]
+### Dependencies
+* [![Lombok][Lombok.js]][Lombok-url]
+* [![Spring-boot][Spring-boot.js]][Spring-boot-url]
+* [![Spring-web][Spring-web.js]][Spring-web-url]
+* [![Webcam-capture][Webcam-capture.js]][Webcam-capture-url]
+* [![Faces][Faces.js]][Faces-url]
+* [![Image-feature-extraction][Image-feature-extraction.js]][Image-feature-extraction-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -233,3 +235,17 @@ Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-a
 [Spring-url]: https://spring.io
 [Maven.js]: https://img.shields.io/badge/Maven-000000?style=for-the-badge&logo=apachemaven&logoColor=orange
 [Maven-url]: https://maven.apache.org
+
+[Lombok.js]: https://img.shields.io/badge/lombok-ffffff?style=for-the-badge&logo=&logoColor=g
+[Lombok-url]: https://mvnrepository.com/artifact/org.projectlombok/lombok
+[Spring-boot.js]: https://img.shields.io/badge/Spring-boot-ffffff?style=for-the-badge&logo=&logoColor=g
+[Spring-boot-url]: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+[Spring-web.js]: https://img.shields.io/badge/Spring-web-ffffff?style=for-the-badge&logo=&logoColor=g
+[Spring-web-url]: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+[Webcam-capture.js]: https://img.shields.io/badge/Webcam-capture-ffffff?style=for-the-badge&logo=&logoColor=g
+[Webcam-capture-url]: https://mvnrepository.com/artifact/com.github.sarxos/webcam-capture
+[Faces.js]: https://img.shields.io/badge/OpenImaj-faces-ffffff?style=for-the-badge&logo=&logoColor=g
+[Faces-url]: https://mvnrepository.com/artifact/org.openimaj/faces
+[Image-feature-extraction.js]: https://img.shields.io/badge/OpenImaj-Image-feature-extraction-ffffff?style=for-the-badge&logo=&logoColor=g
+[Image-feature-extraction-url]: https://mvnrepository.com/artifact/org.openimaj/image-feature-extraction
+
