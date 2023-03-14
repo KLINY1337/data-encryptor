@@ -30,7 +30,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/KLINY1337/data-storage-with-face-recognition-authorization">
     <img src="logo.png" alt="Logo" width="240" height="240">
   </a>
 
