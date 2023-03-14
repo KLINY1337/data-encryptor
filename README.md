@@ -162,7 +162,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - semyon.chernomurov@gmail.com
+Semyon Chernomurov - semyon.chernomurov@gmail.com
+Alexey Smolnikov - semyon.chernomurov@gmail.com
 
 Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-authorization](https://github.com/KLINY1337/data-storage-with-face-recognition-authorization)
 
