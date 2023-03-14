@@ -83,7 +83,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/KLINY1337/data-storage-with-face-recognition-authorization/blob/master/for-introduction/features.png)
 
 FaceVault is a cutting-edge data storage application designed to provide the highest level of security and privacy to its users. The application uses advanced facial recognition technology to grant access to authorized individuals, ensuring that only authorized users can view and manage the stored data.
 
