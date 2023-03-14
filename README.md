@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/KLINY1337/data-storage-with-face-recognition-authorization">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="for-introduction/logo.png" alt="Logo" width="240" height="240">
   </a>
 
 <h3 align="center">face-vault-spring-application</h3>
