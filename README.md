@@ -97,6 +97,12 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Built With
+* [![Spring][Spring.js]][Spring-url]
+* [![Maven][Maven.js]][Maven-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 <!-- GETTING STARTED -->
@@ -223,7 +229,7 @@ Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-a
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
 
-[Vue.js]: https://img.shields.io/badge/Spring-ffffff?style=for-the-badge&logo=spring&logoColor=green
-[Vue-url]: https://vuejs.org/
+[Spring.js]: https://img.shields.io/badge/Spring-ffffff?style=for-the-badge&logo=spring&logoColor=green
+[Spring-url]: https://spring.io
 [Maven.js]: https://img.shields.io/badge/Maven-000000?style=for-the-badge&logo=apachemaven&logoColor=orange
-[Maven-url]: https://vuejs.org/
+[Maven-url]: https://maven.apache.org
