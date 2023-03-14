@@ -191,7 +191,7 @@ Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-a
 [license-url]: https://github.com/KLINY1337/data-storage-with-face-recognition-authorization/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: for-introduction/features.png
 
 [Spring.js]: https://img.shields.io/badge/Spring-ffffff?style=for-the-badge&logo=spring&logoColor=green
 [Spring-url]: https://spring.io
