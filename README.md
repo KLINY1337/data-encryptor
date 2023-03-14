@@ -164,7 +164,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Semyon Chernomurov - semyon.chernomurov@gmail.com
 
-Alexey Smolnikov - semyon.chernomurov@gmail.com
+Alexey Smolnikov - alesha.smolnikoff@gmail.com
 
 Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-authorization](https://github.com/KLINY1337/data-storage-with-face-recognition-authorization)
 
