@@ -46,7 +46,7 @@
     ·
     <a href="https://github.com/KLINY1337/data-storage-with-face-recognition-authorization/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/KLINY1337/data-storage-with-face-recognition-authorization/issues">Request Feature</a>
   </p>
 </div>
 
