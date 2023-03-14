@@ -85,13 +85,11 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-SecureFaceVault is a cutting-edge data storage application designed to provide the highest level of security and privacy to its users. The application uses advanced facial recognition technology to grant access to authorized individuals, ensuring that only authorized users can view and manage the stored data.
+FaceVault is a cutting-edge data storage application designed to provide the highest level of security and privacy to its users. The application uses advanced facial recognition technology to grant access to authorized individuals, ensuring that only authorized users can view and manage the stored data.
 
-With SecureFaceVault, you can store all your sensitive data, including passwords, financial information, personal documents, and more, knowing that your data is fully protected. The application features a user-friendly interface that allows you to easily upload, organize, and manage your files, all while keeping them safe from prying eyes.
+With FaceVault, you can store all your sensitive data, including passwords, financial information, personal documents, and more, knowing that your data is fully protected. The application features a user-friendly interface that allows you to easily upload, organize, and manage your files, all while keeping them safe from prying eyes.
 
-The facial recognition technology used in SecureFaceVault is highly accurate and reliable, providing an additional layer of security to the already robust encryption and authentication systems in place. This means that you can have peace of mind knowing that your data is secure, and that only you or authorized individuals can access it.
-
-Whether you're a business owner looking to protect confidential information or an individual seeking a secure way to store personal data, SecureFaceVault is the ultimate solution. Try it today and experience the convenience and security of this cutting-edge application.
+The facial recognition technology used in FaceVault is highly accurate and reliable, providing an additional layer of security to the already robust encryption and authentication systems in place. This means that you can have peace of mind knowing that your data is secure, and that only you or authorized individuals can access it.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
