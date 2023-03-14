@@ -93,6 +93,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 * [![Vue][Vue.js]][Vue-url]
+* [![Maven][Maven.js]][Maven-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -224,3 +225,5 @@ Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-a
 
 [Vue.js]: https://img.shields.io/badge/Spring-ffffff?style=for-the-badge&logo=spring&logoColor=green
 [Vue-url]: https://vuejs.org/
+[Maven.js]: https://img.shields.io/badge/Spring-ffffff?style=for-the-badge&logo=spring&logoColor=green
+[Maven-url]: https://vuejs.org/
