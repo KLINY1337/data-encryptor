@@ -233,7 +233,7 @@ Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-a
 
 [Spring.js]: https://img.shields.io/badge/Spring-ffffff?style=for-the-badge&logo=spring&logoColor=green
 [Spring-url]: https://spring.io
-[Maven.js]: https://img.shields.io/badge/Maven-000000?style=for-the-badge&logo=apachemaven&logoColor=orange
+[Maven.js]: https://img.shields.io/badge/Maven-4D4D4D?style=for-the-badge&logo=apachemaven&logoColor=orange
 [Maven-url]: https://maven.apache.org
 
 [Lombok.js]: https://img.shields.io/badge/Project%20Lombok-lombok-ffffff?style=for-the-badge&logo=&logoColor=g
