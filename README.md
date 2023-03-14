@@ -225,5 +225,5 @@ Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-a
 
 [Vue.js]: https://img.shields.io/badge/Spring-ffffff?style=for-the-badge&logo=spring&logoColor=green
 [Vue-url]: https://vuejs.org/
-[Maven.js]: https://img.shields.io/badge/Spring-ffffff?style=for-the-badge&logo=spring&logoColor=green
+[Maven.js]: https://img.shields.io/badge/Maven-000000?style=for-the-badge&logo=apachemaven&logoColor=orange
 [Maven-url]: https://vuejs.org/
