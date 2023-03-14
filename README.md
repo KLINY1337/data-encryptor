@@ -34,7 +34,7 @@
     <img src="logo.png" alt="Logo" width="240" height="240">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Your personal secured data storage</h3>
 
   <p align="center">
     An awesome README template to jumpstart your projects!
