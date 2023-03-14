@@ -236,7 +236,7 @@ Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-a
 [Maven.js]: https://img.shields.io/badge/Maven-000000?style=for-the-badge&logo=apachemaven&logoColor=orange
 [Maven-url]: https://maven.apache.org
 
-[Lombok.js]: https://img.shields.io/badge/lombok-ffffff?style=for-the-badge&logo=&logoColor=g
+[Lombok.js]: https://img.shields.io/badge/Project%20Lombok-lombok-ffffff?style=for-the-badge&logo=&logoColor=g
 [Lombok-url]: https://mvnrepository.com/artifact/org.projectlombok/lombok
 [Spring-boot.js]: https://img.shields.io/badge/Spring-boot-ffffff?style=for-the-badge&logo=&logoColor=g
 [Spring-boot-url]: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
