@@ -240,12 +240,12 @@ Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-a
 [Lombok-url]: https://mvnrepository.com/artifact/org.projectlombok/lombok
 [Spring-boot.js]: https://img.shields.io/badge/Spring-boot-ffffff?style=for-the-badge&logo=&logoColor=g
 [Spring-boot-url]: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
-[Spring-web.js]: https://img.shields.io/badge/Spring%20web-ffffff?style=for-the-badge&logo=&logoColor=g
+[Spring-web.js]: https://img.shields.io/badge/Spring-web-ffffff?style=for-the-badge&logo=&logoColor=g
 [Spring-web-url]: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-[Webcam-capture.js]: https://img.shields.io/badge/Sarxos:%20webcam%20capture-ffffff?style=for-the-badge&logo=&logoColor=g
+[Webcam-capture.js]: https://img.shields.io/badge/Sarxos-webcam%20capture-ffffff?style=for-the-badge&logo=&logoColor=g
 [Webcam-capture-url]: https://mvnrepository.com/artifact/com.github.sarxos/webcam-capture
-[Faces.js]: https://img.shields.io/badge/OpenImaj:%20faces-ffffff?style=for-the-badge&logo=&logoColor=g
+[Faces.js]: https://img.shields.io/badge/OpenImaj-faces-ffffff?style=for-the-badge&logo=&logoColor=g
 [Faces-url]: https://mvnrepository.com/artifact/org.openimaj/faces
-[Image-feature-extraction.js]: https://img.shields.io/badge/OpenImaj:%20Image%20feature%20extraction-ffffff?style=for-the-badge&logo=&logoColor=g
+[Image-feature-extraction.js]: https://img.shields.io/badge/OpenImaj-Image%20feature%20extraction-ffffff?style=for-the-badge&logo=&logoColor=g
 [Image-feature-extraction-url]: https://mvnrepository.com/artifact/org.openimaj/image-feature-extraction
 
