@@ -246,6 +246,6 @@ Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-a
 [Webcam-capture-url]: https://mvnrepository.com/artifact/com.github.sarxos/webcam-capture
 [Faces.js]: https://img.shields.io/badge/OpenImaj-faces-ffffff?style=for-the-badge&logo=&logoColor=g
 [Faces-url]: https://mvnrepository.com/artifact/org.openimaj/faces
-[Image-feature-extraction.js]: https://img.shields.io/badge/OpenImaj-Image-feature-extraction-ffffff?style=for-the-badge&logo=&logoColor=g
+[Image-feature-extraction.js]: https://img.shields.io/badge/OpenImaj:%20Image%20feature%20extraction-ffffff?style=for-the-badge&logo=&logoColor=g
 [Image-feature-extraction-url]: https://mvnrepository.com/artifact/org.openimaj/image-feature-extraction
 
