@@ -1,13 +1,12 @@
-package com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face_recognition;
+package com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face.Recognition;
 
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face_getting.FaceGetter;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face.Getting.FaceGetter;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.openimaj.image.ImageUtilities;
 import org.openimaj.image.processing.face.detection.DetectedFace;
 import org.openimaj.image.processing.face.detection.HaarCascadeDetector;
-import org.openimaj.image.processing.face.detection.benchmarking.Matcher;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -48,6 +47,7 @@ public class FaceRecognizer {
         //get decrypted list of registered faces
         //Matcher match
         //compare detectedFaces (which size is 1) to all the registered faces and return the average score of comparing
+        //encrypt using salsa20
         return 0;
     }
 }

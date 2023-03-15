@@ -1,4 +1,4 @@
-package com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face_getting;
+package com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face.Getting;
 
 import com.github.sarxos.webcam.Webcam;
 import lombok.Getter;
