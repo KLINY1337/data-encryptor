@@ -1,6 +1,5 @@
 package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Config;
 
-import lombok.Data;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
