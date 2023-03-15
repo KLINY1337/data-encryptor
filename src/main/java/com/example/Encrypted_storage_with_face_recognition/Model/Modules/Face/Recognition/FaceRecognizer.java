@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.openimaj.image.ImageUtilities;
 import org.openimaj.image.processing.face.detection.DetectedFace;
 import org.openimaj.image.processing.face.detection.HaarCascadeDetector;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -17,11 +19,13 @@ import java.util.List;
 @Setter
 @Getter
 @Slf4j
+@Service
 public class FaceRecognizer {
-    private HaarCascadeDetector faceDetector = new HaarCascadeDetector();
+    @Autowired
+    private HaarCascadeDetector faceDetector;
 
-    public List<DetectedFace> detectFace() throws IOException {
-        BufferedImage faceImage = FaceGetter.getFaceImage();
+    public List<DetectedFace> detectFace() {
+        BufferedImage faceImage = new FaceGetter().getFaceImage();
         //ImageIO.write(faceImage, "PNG", new File("hello-world.png"));
         try {
             assert faceImage != null;

@@ -4,17 +4,21 @@ import com.github.sarxos.webcam.Webcam;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.awt.image.BufferedImage;
 
 @Setter
 @Getter
 @Slf4j
+@Service
 public class FaceGetter {
 
-    static Webcam webcam = Webcam.getDefault();
+    @Autowired
+    private Webcam webcam;
 
-    public static BufferedImage getFaceImage(){
+    public BufferedImage getFaceImage(){
         try {
             webcam.open();
             return webcam.getImage();
