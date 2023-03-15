@@ -4,29 +4,52 @@ package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.E
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.crypto.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
+import java.security.*;
+import java.util.HashMap;
+import java.util.Map;
 
 @Setter
 @Getter
 @Slf4j
+@Service
 public class Encryptor {
-    public static byte[] encrypt(File file)  {
+
+    @Autowired
+    private KeyStore keyStore;
+    public static Map<String, byte[]> encrypt(File file)  {
         try {
             byte[] plainText  = Files.readAllBytes(Path.of(file.getPath()));
 
+            byte[] fileDigest = getFileDigest(plainText);
+
             Cipher cipher = getCipher();
 
-            return cipher.doFinal(plainText);
+            Map<String, byte[]> encryptionResult = new HashMap<>();
+
+            encryptionResult.put("encryptedFile", cipher.doFinal(plainText));
+            encryptionResult.put("fileDigest", fileDigest);
+
+            return encryptionResult;
 
         } catch (IllegalBlockSizeException | IOException | BadPaddingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static byte[] getFileDigest(byte[] plainText) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            return messageDigest.digest(plainText);
+        } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
     }
@@ -60,5 +83,7 @@ public class Encryptor {
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
+
+
     }
 }
