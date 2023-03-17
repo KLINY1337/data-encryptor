@@ -13,10 +13,10 @@ public class EncryptedStorageWithFaceRecognitionApplication {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(EncryptedStorageWithFaceRecognitionApplication.class, args);
-		FaceRecognizer faceRecognizer = new FaceRecognizer();
-		System.out.println(faceRecognizer.detectFace());
+		//FaceRecognizer faceRecognizer = new FaceRecognizer();
+		//System.out.println(faceRecognizer.detectFace());
 
-		System.out.println(Encryptor.encrypt(new File("LICENSE.txt")));
+		//System.out.println(Encryptor.encrypt(new File("LICENSE.txt")));
 	}
 
 }

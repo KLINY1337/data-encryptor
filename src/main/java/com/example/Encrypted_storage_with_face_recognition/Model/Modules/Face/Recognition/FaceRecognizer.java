@@ -1,6 +1,7 @@
 package com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face.Recognition;
 
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face.Getting.FaceGetter;
+import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Service;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 @Setter
@@ -24,8 +24,10 @@ public class FaceRecognizer {
     @Autowired
     private HaarCascadeDetector faceDetector;
 
+    @Autowired
+    private FaceGetter faceGetter;
     public List<DetectedFace> detectFace() {
-        BufferedImage faceImage = new FaceGetter().getFaceImage();
+        BufferedImage faceImage = faceGetter.getFaceImage();
         //ImageIO.write(faceImage, "PNG", new File("hello-world.png"));
         try {
             assert faceImage != null;

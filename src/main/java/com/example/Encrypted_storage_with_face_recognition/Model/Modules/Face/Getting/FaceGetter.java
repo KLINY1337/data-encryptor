@@ -1,6 +1,7 @@
 package com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face.Getting;
 
 import com.github.sarxos.webcam.Webcam;
+import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -14,9 +15,9 @@ import java.awt.image.BufferedImage;
 @Slf4j
 @Service
 public class FaceGetter {
-
     @Autowired
     private Webcam webcam;
+
 
     public BufferedImage getFaceImage(){
         try {

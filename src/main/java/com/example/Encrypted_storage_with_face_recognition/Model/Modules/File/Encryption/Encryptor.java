@@ -42,6 +42,7 @@ public class Encryptor {
         } catch (IllegalBlockSizeException | IOException | BadPaddingException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     private static byte[] getFileDigest(byte[] plainText) {
