@@ -23,15 +23,23 @@ import java.security.cert.CertificateException;
 @Service
 @PropertySource("application.properties")
 public class KeyStoreCreator {
-    @Value("${key.store.file.name}")
+    //@Value("${key.store.file.name}")
     private static String keyStoreFileName;
 
-    @Value("${key.store.type}")
+    //@Value("${key.store.type}")
     private static String keyStoreType;
 
-    @Value("${key.store.password}")
+    //@Value("${key.store.password}")
     private static String keyStorePassword;
 
+    public KeyStoreCreator(@Value("${key.store.file.name}") String keyStoreFileName,
+                           @Value("${key.store.type}") String keyStoreType,
+                           @Value("${key.store.password}") String keyStorePassword) {
+
+        KeyStoreCreator.keyStoreFileName = keyStoreFileName;
+        KeyStoreCreator.keyStoreType = keyStoreType;
+        KeyStoreCreator.keyStorePassword = keyStorePassword;
+    }
     public static KeyStore createKeyStore(){
         try {
             KeyStore keyStore = KeyStore.getInstance(keyStoreType);
