@@ -1,0 +1,14 @@
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.drop-zone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    text-align: center;
+}
+
