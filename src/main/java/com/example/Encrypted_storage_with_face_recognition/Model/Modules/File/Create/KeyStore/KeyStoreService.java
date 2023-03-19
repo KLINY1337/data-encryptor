@@ -22,7 +22,7 @@ import java.security.cert.CertificateException;
 @Slf4j
 @Service
 @PropertySource("application.properties")
-public class KeyStoreCreator {
+public class KeyStoreService {
     //@Value("${key.store.file.name}")
     private static String keyStoreFileName;
 
@@ -32,13 +32,13 @@ public class KeyStoreCreator {
     //@Value("${key.store.password}")
     private static String keyStorePassword;
 
-    public KeyStoreCreator(@Value("${key.store.file.name}") String keyStoreFileName,
+    public KeyStoreService(@Value("${key.store.file.name}") String keyStoreFileName,
                            @Value("${key.store.type}") String keyStoreType,
                            @Value("${key.store.password}") String keyStorePassword) {
 
-        KeyStoreCreator.keyStoreFileName = keyStoreFileName;
-        KeyStoreCreator.keyStoreType = keyStoreType;
-        KeyStoreCreator.keyStorePassword = keyStorePassword;
+        KeyStoreService.keyStoreFileName = keyStoreFileName;
+        KeyStoreService.keyStoreType = keyStoreType;
+        KeyStoreService.keyStorePassword = keyStorePassword;
     }
     public static KeyStore createKeyStore(){
         try {
@@ -64,5 +64,9 @@ public class KeyStoreCreator {
         } catch (CertificateException | KeyStoreException | IOException | NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean isKeyStoreExist(){
+        return Files.exists(Path.of(keyStoreFileName));
     }
 }
