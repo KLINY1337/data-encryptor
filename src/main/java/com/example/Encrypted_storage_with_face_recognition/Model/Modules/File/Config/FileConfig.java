@@ -9,8 +9,4 @@ import java.security.KeyStore;
 @Configuration
 public class FileConfig {
 
-    @Bean
-    public KeyStore keyStore() {
-        return KeyStoreService.createKeyStore();
-    }
 }

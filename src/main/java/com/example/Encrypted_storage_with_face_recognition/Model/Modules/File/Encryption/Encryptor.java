@@ -1,10 +1,16 @@
 package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Encryption;
 
 
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.Cipher.CipherService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.Digest.DigestService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.KeyStore.KeyStoreService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.SecretKey.SecretKeyService;
+import gov.sandia.cognition.util.DefaultTriple;
+import gov.sandia.cognition.util.Triple;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.commons.lang.ArrayUtils;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.*;
@@ -13,7 +19,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Setter
@@ -21,69 +29,53 @@ import java.util.Map;
 @Slf4j
 @Service
 public class Encryptor {
-
-    @Autowired
-    private KeyStore keyStore;
-    public static Map<String, byte[]> encrypt(File file)  {
+    private final KeyStoreService keyStoreService;
+    private final DigestService digestService;
+    private final CipherService cipherService;
+    private final SecretKeyService secretKeyService;
+    public Encryptor(KeyStoreService keyStoreService,
+                     DigestService digestService,
+                     CipherService cipherService,
+                     SecretKeyService secretKeyService){
+        this.keyStoreService = keyStoreService;
+        this.digestService = digestService;
+        this.cipherService = cipherService;
+        this.secretKeyService = secretKeyService;
+    }
+    public Map<String, byte[]> encrypt(File file)  {
         try {
-            byte[] plainText  = Files.readAllBytes(Path.of(file.getPath()));
+            byte[] fileBytes  = Files.readAllBytes(Path.of(file.getPath()));
+            byte[] fileBytesDigest = digestService.getDigest(fileBytes);
 
-            byte[] fileDigest = getFileDigest(plainText);
+            SecretKey secretKey = secretKeyService.getSecretKey();
 
-            Cipher cipher = getCipher();
+            byte[] encryptedBytes = getEncryptedBytes(fileBytes, secretKey);
+            byte[] encryptedBytesDigest = digestService.getDigest(encryptedBytes);
+
+            Triple<String, KeyStore.SecretKeyEntry, KeyStore.ProtectionParameter> entryParameters = keyStoreService.getParametersForStoringKey(
+                    encryptedBytes,
+                    encryptedBytesDigest,
+                    secretKey);
+
+            KeyStore keyStore = keyStoreService.getKeyStore();
+            keyStore.setEntry(entryParameters.getFirst(), entryParameters.getSecond(), entryParameters.getThird());
 
             Map<String, byte[]> encryptionResult = new HashMap<>();
-
-            encryptionResult.put("encryptedFile", cipher.doFinal(plainText));
-            encryptionResult.put("fileDigest", fileDigest);
+            encryptionResult.put("encryptedBytes", encryptedBytes);
+            encryptionResult.put("fileBytesDigest", fileBytesDigest);
 
             return encryptionResult;
 
-        } catch (IllegalBlockSizeException | IOException | BadPaddingException e) {
+        } catch (IllegalBlockSizeException | IOException | BadPaddingException | KeyStoreException e) {
             throw new RuntimeException(e);
         }
 
     }
 
-    private static byte[] getFileDigest(byte[] plainText) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-            return messageDigest.digest(plainText);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
+    private byte[] getEncryptedBytes(byte[] fileBytes, SecretKey secretKey) throws IOException, IllegalBlockSizeException, BadPaddingException {
+        Cipher cipher = cipherService.getCipher(secretKey);
+
+        return cipher.doFinal(fileBytes);
     }
 
-    private static Cipher getCipher() {
-        try {
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-
-            SecretKey secretKey = getSecretKey();
-
-            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-
-            return cipher;
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-    private static SecretKey getSecretKey() {
-
-        try {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-
-            SecureRandom secureRandom = new SecureRandom();
-
-            int keyBitSize = 256;
-
-            keyGenerator.init(keyBitSize, secureRandom);
-
-            return keyGenerator.generateKey();
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-
-
-    }
 }
