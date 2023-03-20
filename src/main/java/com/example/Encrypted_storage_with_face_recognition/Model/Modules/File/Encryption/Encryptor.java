@@ -73,7 +73,7 @@ public class Encryptor {
     }
 
     private byte[] getEncryptedBytes(byte[] fileBytes, SecretKey secretKey) throws IOException, IllegalBlockSizeException, BadPaddingException {
-        Cipher cipher = cipherService.getCipher(secretKey);
+        Cipher cipher = cipherService.getCipher(Cipher.ENCRYPT_MODE, secretKey);
 
         return cipher.doFinal(fileBytes);
     }
