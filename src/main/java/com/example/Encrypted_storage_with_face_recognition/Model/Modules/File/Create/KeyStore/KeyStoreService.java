@@ -89,7 +89,13 @@ public class KeyStoreService {
         //Добавить проверку чтобы этот альяс не содержался в списке файлов всех (этот альяс также будет именем шифрованного файла)
         String keyAlias = getKeyAlias();
 
-        KeyStore.SecretKeyEntry secretKeyEntry = new KeyStore.SecretKeyEntry(secretKey);
+        KeyStore.SecretKeyEntry secretKeyEntry;
+        if (secretKey != null){
+            secretKeyEntry = new KeyStore.SecretKeyEntry(secretKey);
+        }
+        else {
+            secretKeyEntry = null;
+        }
 
         KeyStore.ProtectionParameter entryPassword = getEntryPassword(encryptedBytes, encryptedBytesDigest);
 

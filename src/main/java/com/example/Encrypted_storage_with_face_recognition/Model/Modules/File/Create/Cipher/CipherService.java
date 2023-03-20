@@ -17,30 +17,19 @@ import java.security.NoSuchAlgorithmException;
 @Service
 @PropertySource("application.properties")
 public class CipherService {
-
-    private Cipher cipher;
     private final String encryptionMethod;
 
     public CipherService(@Value("${cipher.encryption.method}") String encryptionMethod){
         this.encryptionMethod = encryptionMethod;
     }
-    public Cipher getCipher(SecretKey secretKey) {
+    public Cipher getCipher(int MODE,SecretKey secretKey) {
         try {
-            if (isCipherExists()){
-                return this.cipher;
-            }
-            else {
                 Cipher cipher = Cipher.getInstance(encryptionMethod);
-                cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+                cipher.init(MODE, secretKey);
 
                 return cipher;
-            }
         } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public boolean isCipherExists(){
-        return cipher != null;
     }
 }
