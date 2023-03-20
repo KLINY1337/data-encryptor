@@ -103,7 +103,7 @@ public class KeyStoreService {
 
     public KeyStore getKeyStore(){
         if (isKeyStoreExist()){
-            return keyStore;
+            return  keyStore;
         }
         else{
             return this.createKeyStore();
@@ -153,8 +153,9 @@ public class KeyStoreService {
         return new KeyStore.PasswordProtection(keyPassword.toCharArray());
     }
 
+    //TODO: properly check isKeyStoreExist
     public boolean isKeyStoreExist(){
-        return Files.exists(Path.of(keyStoreFileName));
+        return keyStore != null;
     }
 
 
