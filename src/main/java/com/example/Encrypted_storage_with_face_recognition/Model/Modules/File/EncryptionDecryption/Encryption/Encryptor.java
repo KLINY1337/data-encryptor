@@ -1,16 +1,14 @@
-package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Encryption;
+package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Encryption;
 
 
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.Cipher.CipherService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.Digest.DigestService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.KeyStore.KeyStoreService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.SecretKey.SecretKeyService;
-import gov.sandia.cognition.util.DefaultTriple;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Cipher.CipherService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Digest.DigestService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.KeyStore.KeyStoreService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.SecretKey.SecretKeyService;
 import gov.sandia.cognition.util.Triple;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.ArrayUtils;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.*;
@@ -19,9 +17,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Setter

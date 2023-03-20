@@ -1,4 +1,4 @@
-package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.SecretKey;
+package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.SecretKey;
 
 import lombok.Getter;
 import lombok.Setter;

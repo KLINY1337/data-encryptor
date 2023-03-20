@@ -1,9 +1,9 @@
-package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Decryption;
+package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Decryption;
 
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.Cipher.CipherService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.Digest.DigestService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.KeyStore.KeyStoreService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.SecretKey.SecretKeyService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Cipher.CipherService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Digest.DigestService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.KeyStore.KeyStoreService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.SecretKey.SecretKeyService;
 import gov.sandia.cognition.util.Triple;
 import lombok.Getter;
 import lombok.Setter;

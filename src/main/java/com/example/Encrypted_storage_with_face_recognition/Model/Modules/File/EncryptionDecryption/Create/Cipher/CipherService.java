@@ -1,4 +1,4 @@
-package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Create.Cipher;
+package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Cipher;
 
 import lombok.Getter;
 import lombok.Setter;
