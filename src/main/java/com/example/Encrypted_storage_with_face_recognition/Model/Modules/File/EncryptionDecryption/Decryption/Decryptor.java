@@ -3,6 +3,7 @@ package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.E
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Cipher.CipherService;
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Digest.DigestService;
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.KeyStore.KeyStoreService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.MetaData.FileMetaDataService;
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.SecretKey.SecretKeyService;
 import gov.sandia.cognition.util.Triple;
 import lombok.Getter;
@@ -35,14 +36,16 @@ public class Decryptor {
     private final DigestService digestService;
     private final CipherService cipherService;
     private final SecretKeyService secretKeyService;
+    private final FileMetaDataService fileMetaDataService;
     public Decryptor(KeyStoreService keyStoreService,
                      DigestService digestService,
                      CipherService cipherService,
-                     SecretKeyService secretKeyService){
+                     SecretKeyService secretKeyService, FileMetaDataService fileMetaDataService){
         this.keyStoreService = keyStoreService;
         this.digestService = digestService;
         this.cipherService = cipherService;
         this.secretKeyService = secretKeyService;
+        this.fileMetaDataService = fileMetaDataService;
     }
 
     public Map<String, byte[]> decrypt(File file){
@@ -62,9 +65,13 @@ public class Decryptor {
             byte[] decryptedBytes = getDecryptedBytes(encryptedBytes, entry.getSecretKey());
             byte[] decryptedBytesDigest = digestService.getDigest(decryptedBytes);
 
+            Map<String, byte[]> fileData = fileMetaDataService.getSeparatedFileData(decryptedBytes);
+
             Map<String, byte[]> decryptionResult = new HashMap<>();
-            decryptionResult.put("decryptedBytes", decryptedBytes);
+
+            decryptionResult.put("decryptedBytes", fileData.get("fileBytes"));
             decryptionResult.put("decryptedBytesDigest", decryptedBytesDigest);
+            decryptionResult.put("alias", fileData.get("fileMetaData"));
 
             return decryptionResult;
 
