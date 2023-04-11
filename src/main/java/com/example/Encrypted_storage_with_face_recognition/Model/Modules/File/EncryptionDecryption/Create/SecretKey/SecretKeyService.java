@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.Base64;
 
 @Setter
 @Getter
@@ -31,6 +35,9 @@ public class SecretKeyService {
             SecureRandom secureRandom = new SecureRandom();
             keyGenerator.init(keyBitSize, secureRandom);
 
+            //char[] base64EncodedSecretKey = Base64.getEncoder().encodeToString(keyGenerator.generateKey().getEncoded()).toCharArray();
+
+            //return new KeyStore.PasswordProtection(base64EncodedSecretKey);
             return keyGenerator.generateKey();
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);

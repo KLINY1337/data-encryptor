@@ -59,7 +59,6 @@ public class Encryptor {
             byte[] fileBytesDigest = digestService.getDigest(fileBytesWithMetadata);
 
             SecretKey secretKey = secretKeyService.getSecretKey();
-
             byte[] encryptedBytes = getEncryptedBytes(fileBytesWithMetadata, secretKey);
             byte[] encryptedBytesDigest = digestService.getDigest(encryptedBytes);
 

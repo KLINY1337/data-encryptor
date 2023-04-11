@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping/*(value = "/api")*/
 @Slf4j
 public class WebController {
 

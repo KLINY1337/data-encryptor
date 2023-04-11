@@ -22,7 +22,9 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
+import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 @Setter
@@ -48,6 +50,7 @@ public class KeyStoreService {
 
         this.keyStoreFileName = keyStoreFileName;
         this.keyStoreType = keyStoreType;
+
         this.keyStorePassword = keyStorePassword;
 
         this.aliasLength = aliasLength;
@@ -130,8 +133,7 @@ public class KeyStoreService {
                 shookBytesArray[i] += 1;
             }
         }
-
-        return new String(digestService.getDigest(shookBytesArray));
+        return Base64.getEncoder().encodeToString(digestService.getDigest(shookBytesArray));
     }
 
     private static byte[] getShookBytesArray(byte[] encryptedBytes, byte[] encryptedBytesDigest) {
