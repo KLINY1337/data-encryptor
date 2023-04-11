@@ -47,6 +47,7 @@
     "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./.erb/configs/webpack.config.renderer.dev.ts",
     "test": "jest"
   },
+  "proxy": "http://localhost:8080/",
   "browserslist": [],
   "prettier": {
     "singleQuote": true,

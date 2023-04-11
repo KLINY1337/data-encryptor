@@ -14,7 +14,8 @@ function FileUpload() {
     formData.append('file', selectedFile);
 
     try {
-      const response = await fetch('/api/upload', {
+      const response = await fetch('http://localhost:8080/uploadFile', {
+        mode: 'cors',
         method: 'POST',
         body: formData,
       });
