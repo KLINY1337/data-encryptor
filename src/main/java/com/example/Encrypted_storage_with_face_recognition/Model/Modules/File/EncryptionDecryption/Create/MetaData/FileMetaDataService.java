@@ -17,7 +17,7 @@ public class FileMetaDataService {
         return fileName.getBytes();
     }
 
-    public Map<String, byte[]> getSeparatedFileData(byte[] decryptedBytes) {
+        public Map<String, byte[]> getSeparatedFileData(byte[] decryptedBytes) {
         byte fileMetaDataLength = decryptedBytes[decryptedBytes.length - 1];
 
         List<Byte> fileMetaData = new ArrayList<>();
