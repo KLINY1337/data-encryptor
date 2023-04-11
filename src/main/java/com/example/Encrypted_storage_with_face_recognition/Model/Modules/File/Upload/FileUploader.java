@@ -8,8 +8,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Map;
+import java.util.Objects;
 
 @Service
 public class FileUploader {
@@ -27,7 +29,15 @@ public class FileUploader {
         this.linkListService = linkListService;
     }
 
-    public File uploadFile(File file){
+    public File uploadFile(MultipartFile multipartFile){
+
+        File file = new File(Objects.requireNonNull(multipartFile.getOriginalFilename())); // create a new file with the original filename
+        try {
+            multipartFile.transferTo(file);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         Map<String, byte[]> fileData = encryptor.encrypt(file);
 
         //Дайджест никак не используется
@@ -43,16 +53,4 @@ public class FileUploader {
         return encryptedFile;
     }
 
-    public File uploadFile(MultipartFile file){
-
-        File converted = new File(file.getOriginalFilename());
-        try{
-            try (OutputStream os = new FileOutputStream(converted)) {
-                os.write(file.getBytes());
-            }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        return uploadFile(converted);
-    }
 }
