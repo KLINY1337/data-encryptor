@@ -155,7 +155,6 @@ public class KeyStoreService {
         return new KeyStore.PasswordProtection(keyPassword.toCharArray());
     }
 
-    //TODO: properly check isKeyStoreExist
     public boolean isKeyStoreExist(){
         return keyStore != null;
     }

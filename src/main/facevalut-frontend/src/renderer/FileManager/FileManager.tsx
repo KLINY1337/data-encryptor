@@ -1,66 +1,23 @@
 import React, {useState} from "react";
 
-interface File {
-  name: string;
-  size: number;
-  type: string;
-}
+function FileManager() {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-const FileList = ({ files }: { files: File[] }) => (
-  <ul>
-    {files.map((file) => (
-      <li key={file.name}>
-        {file.name} ({file.size} bytes) - {file.type}
-      </li>
-    ))}
-  </ul>
-);
-
-const FileUploader = ({ onUpload }: { onUpload: (files: File[]) => void }) => {
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const fileList = e.target.files;
-    if (fileList) {
-      const files: File[] = [];
-      for (let i = 0; i < fileList.length; i++) {
-        const file = fileList[i];
-        files.push({
-          name: file.name,
-          size: file.size,
-          type: file.type,
-        });
-      }
-      setSelectedFiles(files);
-      onUpload(files);
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!selectedFile) {
+      alert('Please select a file');
+      return;
     }
-  };
 
-  return (
-    <div>
-      <input type="file" multiple onChange={handleFileChange} />
-      <FileList files={selectedFiles} />
-    </div>
-  );
-};
+    const formData = new FormData();
+    formData.append('file', selectedFile);
 
-
-
-const FileManager = () => {
-  const [files, setFiles] = useState<File[]>([]);
-
-  const handleUpload = (uploadedFiles: File[]) => {
-    setFiles((prevFiles) => [...prevFiles, ...uploadedFiles]);
-  };
-
-  const handleSendFiles = async () => {
     try {
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(files),
+      const response = await fetch('http://localhost:8080/uploadFile', {
+        mode: 'cors',
+        method: 'POST',
+        body: formData,
       });
       const data = await response.json();
       console.log(data);
@@ -69,13 +26,20 @@ const FileManager = () => {
     }
   };
 
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedFile(event.target.files?.[0] || null);
+  };
+
   return (
-    <div>
-      <FileUploader onUpload={handleUpload} />
-      <button onClick={handleSendFiles}>Send Files</button>
-      {/*<FileList files={files} />*/}
-    </div>
+    <form onSubmit={handleSubmit}>
+      <label>
+        Select file to upload:
+        <input type="file" onChange={handleFileChange} />
+      </label>
+      <br />
+      <button type="submit">Upload</button>
+    </form>
   );
-};
+}
 
 export default FileManager;

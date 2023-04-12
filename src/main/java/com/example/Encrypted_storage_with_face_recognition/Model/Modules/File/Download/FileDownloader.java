@@ -5,6 +5,7 @@ import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.En
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.net.URL;
 import java.util.Map;
 
 @Service
@@ -27,5 +28,9 @@ public class FileDownloader {
         String filePath = "decrypted-files/" + fileName;
 
         return byteToFileConverter.convertAndSave(filePath, fileBytes);
+    }
+
+    public File downloadFile(String encryptedfFileName){
+        return downloadFile(new File("encrypted-files/" + encryptedfFileName));
     }
 }
