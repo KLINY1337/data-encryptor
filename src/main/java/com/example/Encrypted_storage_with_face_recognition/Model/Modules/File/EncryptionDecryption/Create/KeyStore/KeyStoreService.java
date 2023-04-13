@@ -3,6 +3,7 @@ package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.E
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Digest.DigestService;
 import gov.sandia.cognition.util.DefaultTriple;
 import gov.sandia.cognition.util.Triple;
+import jakarta.annotation.PreDestroy;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -12,9 +13,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.KeyStore;
@@ -85,18 +84,21 @@ public class KeyStoreService {
         }
     }
 
-    public Triple<String, KeyStore.SecretKeyEntry, KeyStore.ProtectionParameter> getParametersForStoringKey(byte[] encryptedBytes,
-                                                                                                             byte[] encryptedBytesDigest,
-                                                                                                             SecretKey secretKey){
+    public Triple<String, KeyStore.SecretKeyEntry, KeyStore.ProtectionParameter> getParametersForStoringKey(String filename,
+                                                                                                            byte[] encryptedBytes,
+                                                                                                            byte[] encryptedBytesDigest,
+                                                                                                            SecretKey secretKey){
         //Добавить проверку чтобы этот альяс не содержался в списке файлов всех (этот альяс также будет именем шифрованного файла)
-        String keyAlias = getKeyAlias();
+        String keyAlias;
 
         KeyStore.SecretKeyEntry secretKeyEntry;
         if (secretKey != null){
             secretKeyEntry = new KeyStore.SecretKeyEntry(secretKey);
+            keyAlias = getKeyAlias();
         }
         else {
             secretKeyEntry = null;
+            keyAlias = filename;
         }
 
         KeyStore.ProtectionParameter entryPassword = getEntryPassword(encryptedBytes, encryptedBytesDigest);
@@ -159,5 +161,13 @@ public class KeyStoreService {
         return keyStore != null;
     }
 
-
+    @PreDestroy
+    public void writeKeyStoreToFile(){
+        try {
+            keyStore.store(new FileOutputStream(keyStoreFileName), keyStorePassword.toCharArray());
+            System.out.println("keystore store");
+        } catch (KeyStoreException | IOException | NoSuchAlgorithmException | CertificateException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
