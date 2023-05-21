@@ -63,12 +63,13 @@ public class Encryptor {
             byte[] encryptedBytesDigest = digestService.getDigest(encryptedBytes);
 
             Triple<String, KeyStore.SecretKeyEntry, KeyStore.ProtectionParameter> entryParameters = keyStoreService.getParametersForStoringKey(
+                    null,
                     encryptedBytes,
                     encryptedBytesDigest,
                     secretKey);
 
             KeyStore keyStore = keyStoreService.getKeyStore();
-            keyStore.setEntry(entryParameters.getFirst(), entryParameters.getSecond(), entryParameters.getThird());
+            keyStore.setEntry(entryParameters.getFirst().toLowerCase(), entryParameters.getSecond(), entryParameters.getThird());
 
             Map<String, byte[]> encryptionResult = new HashMap<>();
             encryptionResult.put("encryptedBytes", encryptedBytes);

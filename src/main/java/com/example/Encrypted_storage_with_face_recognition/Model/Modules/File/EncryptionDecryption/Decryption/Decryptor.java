@@ -56,6 +56,7 @@ public class Decryptor {
             KeyStore keyStore = keyStoreService.getKeyStore();
 
             Triple<String, KeyStore.SecretKeyEntry, KeyStore.ProtectionParameter> entryParameters = keyStoreService.getParametersForStoringKey(
+                    file.getName().toLowerCase(),
                     encryptedBytes,
                     encryptedBytesDigest,
                     null);
