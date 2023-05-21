@@ -1,6 +1,7 @@
 package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.KeyStore;
 
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Digest.DigestService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.LinkList.LinkListService;
 import gov.sandia.cognition.util.DefaultTriple;
 import gov.sandia.cognition.util.Triple;
 import jakarta.annotation.PreDestroy;
@@ -21,7 +22,6 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -32,6 +32,8 @@ import java.util.List;
 @Service
 @PropertySource("application.properties")
 public class KeyStoreService {
+
+    private final LinkListService linkListService;
     private final DigestService digestService;
     private KeyStore keyStore;
     private final String keyStoreFileName;
@@ -45,7 +47,9 @@ public class KeyStoreService {
                            @Value("${key.store.password}") String keyStorePassword,
                            @Value("${key.alias.length}") int aliasLength,
                            @Value("${key.alias.characters}") String aliasAvailableCharacters,
-                           DigestService digestService) {
+                           DigestService digestService,
+                           LinkListService linkListService) {
+        this.linkListService = linkListService;
 
         this.keyStoreFileName = keyStoreFileName;
         this.keyStoreType = keyStoreType;
@@ -61,7 +65,9 @@ public class KeyStoreService {
         try {
             KeyStore keyStore = KeyStore.getInstance(keyStoreType);
 
-            if (!Files.exists(Path.of(keyStoreFileName))) {
+            //!Files.exists(Path.of(keyStoreFileName))
+
+            if (!linkListService.isLinkListExists()) {
 
                 keyStore.load(null, keyStorePassword.toCharArray());
 

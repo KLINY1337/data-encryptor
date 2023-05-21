@@ -54,6 +54,11 @@ public class LinkListService {
         linkList.add(link);
     }
 
+    public boolean isLinkListExists() {
+
+        return !linkList.isEmpty();
+    }
+
     @PreDestroy
     public void writeLinkListToFile(){
         File file = new File(linkListFilename);
