@@ -45,7 +45,7 @@ public class Encryptor {
     }
     public Map<String, byte[]> encrypt(File file)  {
         try {
-            byte[] fileBytes  = Files.readAllBytes(Path.of(file.getCanonicalPath()));
+            byte[] fileBytes  = Files.readAllBytes(Path.of(file.getAbsolutePath()));
             byte[] fileMetaData = fileMetaDataService.getFileMetaData(file);
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
