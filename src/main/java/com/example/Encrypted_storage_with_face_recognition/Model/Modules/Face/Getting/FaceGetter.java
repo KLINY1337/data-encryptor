@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 
 import java.awt.image.BufferedImage;
 
-@Setter
-@Getter
-@Slf4j
-@Service
-public class FaceGetter {
+//@Setter
+//@Getter
+//@Slf4j
+//@Service
+//public class FaceGetter {
     //@Autowired
     //private Webcam webcam;
 
@@ -31,5 +31,5 @@ public class FaceGetter {
 //        finally {
 //            webcam.close();
 //        }
-    }
-}
+ //   }
+//}
