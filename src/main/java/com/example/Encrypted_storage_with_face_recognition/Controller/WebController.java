@@ -3,6 +3,7 @@ package com.example.Encrypted_storage_with_face_recognition.Controller;
 
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Download.FileDownloader;
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.KeyStore.KeyStoreService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.LinkList.LinkListService;
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Upload.FileUploader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class WebController {
 
     @Autowired
     private KeyStoreService keyStoreService;
+
+    @Autowired
+    private LinkListService linkListService;
 
     @Autowired
     private FileUploader fileUploader;
@@ -77,7 +81,10 @@ public class WebController {
         }catch (Exception exception){
 //           return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
             throw new RuntimeException(exception);
+
         }
     }
 
+
 }
+// linkListService.getLinkList();

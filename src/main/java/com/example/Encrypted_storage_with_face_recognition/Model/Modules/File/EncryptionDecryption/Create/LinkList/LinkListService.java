@@ -54,6 +54,11 @@ public class LinkListService {
         linkList.add(link);
     }
 
+    public List<Link> getLinkList() {
+
+        return linkList;
+    }
+
     public boolean isLinkListExists() {
 
         return !linkList.isEmpty();
