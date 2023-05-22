@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FaceConfig {
 
-    @Bean
+    //@Bean
     public Webcam webcam(){
         System.out.println("webcam created");
         return Webcam.getDefault();
