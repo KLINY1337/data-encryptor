@@ -15,21 +15,21 @@ import java.awt.image.BufferedImage;
 @Slf4j
 @Service
 public class FaceGetter {
-    @Autowired
-    private Webcam webcam;
+    //@Autowired
+    //private Webcam webcam;
 
 
-    public BufferedImage getFaceImage(){
-        try {
-            webcam.open();
-            return webcam.getImage();
-        }
-        catch (Exception e){
-            log.error(e.getMessage());
-            return null;
-        }
-        finally {
-            webcam.close();
-        }
+//    public BufferedImage getFaceImage(){
+//        try {
+//            webcam.open();
+//            return webcam.getImage();
+//        }
+//        catch (Exception e){
+//            log.error(e.getMessage());
+//            return null;
+//        }
+//        finally {
+//            webcam.close();
+//        }
     }
 }
