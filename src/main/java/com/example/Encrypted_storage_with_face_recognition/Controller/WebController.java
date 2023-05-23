@@ -3,6 +3,7 @@ package com.example.Encrypted_storage_with_face_recognition.Controller;
 
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Download.FileDownloader;
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.KeyStore.KeyStoreService;
+import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.LinkList.Link;
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.LinkList.LinkListService;
 import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Upload.FileUploader;
 import lombok.extern.slf4j.Slf4j;
@@ -38,22 +39,23 @@ public class WebController {
     @RequestMapping(value = "/isKeyStoreExist")
     public ResponseEntity<?> page() {
         try {
-            return ResponseEntity.ok(new HashMap<String,Boolean>(){{put("isKeyStoreExist",keyStoreService.isKeyStoreExist());}});
-        }
-        catch (Exception exception){
+            return ResponseEntity.ok(new HashMap<String, Boolean>() {{
+                put("isKeyStoreExist", keyStoreService.isKeyStoreExist());
+            }});
+        } catch (Exception exception) {
             return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
         }
     }
 
 
     @PostMapping(value = "/uploadFile")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file){
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
             System.out.println("uploading");
 
-           return new ResponseEntity<>(fileUploader.uploadFile(file).getName(),
+            return new ResponseEntity<>(fileUploader.uploadFile(file).getName(),
                     HttpStatus.OK);
-        }catch (Exception exception){
+        } catch (Exception exception) {
 //           return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
             throw new RuntimeException(exception);
         }
@@ -68,7 +70,7 @@ public class WebController {
 //	at com.example.Encrypted_storage_with_face_recognition.Controller.WebController.downloadFile(WebController.java:63) ~[classes/:na]
 
     @PostMapping(value = "/downloadFile")
-    public ResponseEntity<Resource> downloadFile(@RequestParam("name") String name){
+    public ResponseEntity<Resource> downloadFile(@RequestParam("name") String name) {
         try {
             System.out.println("donloading");
 
@@ -78,13 +80,17 @@ public class WebController {
             return ResponseEntity.ok()
                     .header("Content-Disposition", "attachment;filename=" + file.getName())
                     .body(resource);
-        }catch (Exception exception){
+        } catch (Exception exception) {
 //           return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
             throw new RuntimeException(exception);
 
         }
     }
 
+    @GetMapping(value = "/getLinkList")
+    public List<Link> getLinkList() {
+        return linkListService.getLinkList();
+    }
+
 
 }
-// linkListService.getLinkList();
