@@ -34,7 +34,7 @@
     <img src="for-introduction/logo.png" alt="Logo" width="240" height="240">
   </a>
 
-<h3 align="center">Your Personal Secured Data Storage!</h3>
+<h3 align="center">Your Personal File Encryptor!</h3>
 
   <p align="center">
     face-vault-spring-application
