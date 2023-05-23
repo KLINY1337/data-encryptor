@@ -1,4 +1,4 @@
-package com.example.Encrypted_storage_with_face_recognition.Model.Modules.Face.Config;
+package com.example.Encrypted_storage_with_face_recognition.face;
 
 import com.github.sarxos.webcam.Webcam;
 import jakarta.annotation.PostConstruct;

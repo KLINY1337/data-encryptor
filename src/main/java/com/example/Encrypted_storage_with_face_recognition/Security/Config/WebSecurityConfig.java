@@ -22,7 +22,7 @@ public class WebSecurityConfig {
 
 //    @Value("${cors.allowed.origins}")
 
-    private static String[] allowedOrigins = {"http://localhost:1212"};
+    private static final String[] allowedOrigins = {"http://localhost:1212"};
 
 //    private WebSecurityConfig(@Value("${cors.allowed.origins}") String[] allowedOrigins) {
 //        WebSecurityConfig.allowedOrigins = allowedOrigins;

@@ -1,11 +1,7 @@
-package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Encryption;
+package com.example.Encrypted_storage_with_face_recognition.file.Service.EncryptionDecryptionHandling;
 
 
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Cipher.CipherService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Digest.DigestService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.KeyStore.KeyStoreService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.MetaData.FileMetaDataService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.SecretKey.SecretKeyService;
+import com.example.Encrypted_storage_with_face_recognition.file.Service.FileHandling.FileMetaDataService;
 import gov.sandia.cognition.util.Triple;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,17 +22,18 @@ import java.util.Map;
 @Getter
 @Slf4j
 @Service
-public class Encryptor {
+public class EncryptionService {
     private final KeyStoreService keyStoreService;
     private final DigestService digestService;
     private final CipherService cipherService;
     private final SecretKeyService secretKeyService;
     private final FileMetaDataService fileMetaDataService;
-    public Encryptor(KeyStoreService keyStoreService,
-                     DigestService digestService,
-                     CipherService cipherService,
-                     SecretKeyService secretKeyService,
-                     FileMetaDataService fileMetaDataService){
+    public EncryptionService(KeyStoreService keyStoreService,
+                             DigestService digestService,
+                             CipherService cipherService,
+                             SecretKeyService secretKeyService,
+                             FileMetaDataService fileMetaDataService){
+
         this.keyStoreService = keyStoreService;
         this.digestService = digestService;
         this.cipherService = cipherService;
@@ -44,7 +41,9 @@ public class Encryptor {
         this.fileMetaDataService = fileMetaDataService;
     }
     public Map<String, byte[]> encrypt(File file)  {
+
         try {
+
             byte[] fileBytes  = Files.readAllBytes(Path.of(file.getAbsolutePath()));
             byte[] fileMetaData = fileMetaDataService.getFileMetaData(file);
 
@@ -77,14 +76,15 @@ public class Encryptor {
             encryptionResult.put("alias", entryParameters.getFirst().getBytes());
 
             return encryptionResult;
-
         } catch (IllegalBlockSizeException | IOException | BadPaddingException | KeyStoreException e) {
+
             throw new RuntimeException(e);
         }
 
     }
 
     private byte[] getEncryptedBytes(byte[] fileBytes, SecretKey secretKey) throws IOException, IllegalBlockSizeException, BadPaddingException {
+
         Cipher cipher = cipherService.getCipher(Cipher.ENCRYPT_MODE, secretKey);
 
         return cipher.doFinal(fileBytes);

@@ -1,13 +1,11 @@
-package com.example.Encrypted_storage_with_face_recognition.Controller;
+package com.example.Encrypted_storage_with_face_recognition.file.Controller;
 
 
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Download.FileDownloader;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.KeyStore.KeyStoreService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.LinkList.Link;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.LinkList.LinkListService;
-import com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Upload.FileUploader;
+import com.example.Encrypted_storage_with_face_recognition.file.Service.FileHandling.FileTransferService;
+import com.example.Encrypted_storage_with_face_recognition.file.Service.EncryptionDecryptionHandling.KeyStoreService;
+import com.example.Encrypted_storage_with_face_recognition.file.Service.FileHandling.LinkList.Link;
+import com.example.Encrypted_storage_with_face_recognition.file.Service.FileHandling.LinkList.LinkListService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
@@ -25,16 +23,17 @@ import java.util.List;
 @Slf4j
 public class WebController {
 
-    @Autowired
-    private KeyStoreService keyStoreService;
+    private final KeyStoreService keyStoreService;
 
-    @Autowired
-    private LinkListService linkListService;
+    private final LinkListService linkListService;
 
-    @Autowired
-    private FileUploader fileUploader;
-    @Autowired
-    private FileDownloader fileDownloader;
+    private final FileTransferService fileTransferService;
+
+    public WebController(KeyStoreService keyStoreService, LinkListService linkListService, FileTransferService fileTransferService) {
+        this.keyStoreService = keyStoreService;
+        this.linkListService = linkListService;
+        this.fileTransferService = fileTransferService;
+    }
 
     @RequestMapping(value = "/isKeyStoreExist")
     public ResponseEntity<?> page() {
@@ -53,7 +52,7 @@ public class WebController {
         try {
             System.out.println("uploading");
 
-            return new ResponseEntity<>(fileUploader.uploadFile(file).getName(),
+            return new ResponseEntity<>(fileTransferService.uploadFile(file).getName(),
                     HttpStatus.OK);
         } catch (Exception exception) {
 //           return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
@@ -64,17 +63,17 @@ public class WebController {
 //    TODO: fix [Request processing failed: java.lang.RuntimeException: java.lang.NullPointerException: Cannot invoke "java.security.KeyStore$SecretKeyEntry.getSecretKey()" because "entry" is null] with root cause
 //
 //java.lang.NullPointerException: Cannot invoke "java.security.KeyStore$SecretKeyEntry.getSecretKey()" because "entry" is null
-//	at com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Decryption.Decryptor.decrypt(Decryptor.java:65) ~[classes/:na]
-//	at com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Download.FileDownloader.downloadFile(FileDownloader.java:22) ~[classes/:na]
-//	at com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.Download.FileDownloader.downloadFile(FileDownloader.java:34) ~[classes/:na]
-//	at com.example.Encrypted_storage_with_face_recognition.Controller.WebController.downloadFile(WebController.java:63) ~[classes/:na]
+//	at com.example.Encrypted_storage_with_face_recognition.file.Decryptor.decrypt(Decryptor.java:65) ~[classes/:na]
+//	at com.example.Encrypted_storage_with_face_recognition.file.FileDownloader.downloadFile(FileDownloader.java:22) ~[classes/:na]
+//	at com.example.Encrypted_storage_with_face_recognition.file.FileDownloader.downloadFile(FileDownloader.java:34) ~[classes/:na]
+//	at com.example.Encrypted_storage_with_face_recognition.file.Controller.WebController.downloadFile(WebController.java:63) ~[classes/:na]
 
     @PostMapping(value = "/downloadFile")
     public ResponseEntity<Resource> downloadFile(@RequestParam("name") String name) {
         try {
             System.out.println("donloading");
 
-            File file = fileDownloader.downloadFile(name);
+            File file = fileTransferService.downloadFile(name);
             InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
             return ResponseEntity.ok()

@@ -1,4 +1,4 @@
-package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Digest;
+package com.example.Encrypted_storage_with_face_recognition.file.Service.EncryptionDecryptionHandling;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,14 +20,19 @@ public class DigestService {
     private final String hashingMethod;
 
     public DigestService(@Value("${digest.hashing.method}") String hashingMethod) {
+
         this.hashingMethod = hashingMethod;
     }
 
     public byte[] getDigest(byte[] plainText) {
+
         try {
+
             MessageDigest messageDigest = MessageDigest.getInstance(hashingMethod);
+
             return messageDigest.digest(plainText);
         } catch (NoSuchAlgorithmException e) {
+
             throw new RuntimeException(e);
         }
     }

@@ -1,4 +1,4 @@
-package com.example.Encrypted_storage_with_face_recognition.Model.Modules.File.EncryptionDecryption.Create.Cipher;
+package com.example.Encrypted_storage_with_face_recognition.file.Service.EncryptionDecryptionHandling;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,15 +22,18 @@ public class CipherService {
     private final String encryptionMethod;
 
     public CipherService(@Value("${cipher.encryption.method}") String encryptionMethod){
+
         this.encryptionMethod = encryptionMethod;
     }
     public Cipher getCipher(int MODE,SecretKey secretKey) {
+
         try {
+
             if (MODE == Cipher.ENCRYPT_MODE){
+
                 Cipher cipher = Cipher.getInstance(encryptionMethod);
 
                 byte[] iv = new byte[cipher.getBlockSize()];
-
                 IvParameterSpec ivParameterSpec = new IvParameterSpec(iv);
 
                 cipher.init(MODE, secretKey, ivParameterSpec);
@@ -38,10 +41,10 @@ public class CipherService {
                 return cipher;
             }
             else if (MODE == Cipher.DECRYPT_MODE) {
+
                 Cipher cipher = Cipher.getInstance(encryptionMethod);
 
                 byte[] ivByte = new byte[cipher.getBlockSize()];
-
                 IvParameterSpec ivParameterSpec = new IvParameterSpec(ivByte);
 
                 cipher.init(MODE, secretKey, ivParameterSpec);
