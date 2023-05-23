@@ -6,6 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ByteShaker {
+
+    /**
+
+     * Creates a byte array by combining the provided encrypted bytes and encrypted bytes digest.
+
+     * @param encryptedBytes The encrypted bytes.
+
+     * @param encryptedBytesDigest The digest of the encrypted bytes.
+
+     * @return The byte array obtained by combining the encrypted bytes and encrypted bytes digest.
+     */
     public static byte[] getShookBytesArray(byte[] encryptedBytes, byte[] encryptedBytesDigest) {
 
         List<Byte> shookBytesList = new ArrayList<>();

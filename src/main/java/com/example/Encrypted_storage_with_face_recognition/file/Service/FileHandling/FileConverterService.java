@@ -8,6 +8,16 @@ import java.io.IOException;
 
 @Service
 public class FileConverterService {
+
+    /**
+
+     * Converts the given byte array into a file and saves it at the specified file path.
+     * @param filePath The path where the file should be saved.
+     * @param bytes The byte array to be converted and saved as a file.
+     * @return The created file.
+     * @throws RuntimeException if an error occurs while converting and saving the file
+     * @throws IOException if an I/O error occurs
+     */
      public File convertAndSave(String filePath, byte[] bytes){
 
          try {

@@ -40,6 +40,15 @@ public class EncryptionService {
         this.secretKeyService = secretKeyService;
         this.fileMetaDataService = fileMetaDataService;
     }
+
+    /**
+
+     * Encrypts the provided file and returns the encrypted data as a map of byte arrays.
+
+     * @param file the file to be encrypted
+     * @return a map containing the encrypted file data, including the encrypted bytes, file bytes digest, and the alias used for storing the encrypted data in the keystore
+     * @throws RuntimeException if an error occurs during the encryption process
+     */
     public Map<String, byte[]> encrypt(File file)  {
 
         try {
@@ -83,6 +92,16 @@ public class EncryptionService {
 
     }
 
+    /**
+
+     * Encrypts the provided byte array using the specified secret key and returns the encrypted bytes.
+     * @param fileBytes the byte array to be encrypted
+     * @param secretKey the secret key used for encryption
+     * @return the encrypted byte array
+     * @throws IOException if an I/O error occurs
+     * @throws IllegalBlockSizeException if the input data length is not a multiple of the block size or if padding is incorrectly applied
+     * @throws BadPaddingException if the input data has been corrupted or if padding is incorrectly applied
+     */
     private byte[] getEncryptedBytes(byte[] fileBytes, SecretKey secretKey) throws IOException, IllegalBlockSizeException, BadPaddingException {
 
         Cipher cipher = cipherService.getCipher(Cipher.ENCRYPT_MODE, secretKey);

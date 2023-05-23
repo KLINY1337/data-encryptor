@@ -11,11 +11,26 @@ import java.util.Map;
 
 @Service
 public class FileMetaDataService {
+
+    /**
+
+     * Retrieves the metadata of the given file.
+     * @param file The file to extract metadata from.
+     * @return The byte array representing the file metadata.
+     */
     public byte[] getFileMetaData(File file){
 
         return file.getName().getBytes();
     }
 
+    /**
+
+    * Separates the file data from the given decrypted bytes and returns a map containing the separated data.
+
+    * @param decryptedBytes The decrypted bytes of the file.
+
+    * @return A map containing the separated file data, with "fileBytes" as the key for the file bytes and "fileMetaData" as the key for the file metadata.
+     */
     public Map<String, byte[]> getSeparatedFileData(byte[] decryptedBytes) {
 
         byte fileMetaDataLength = decryptedBytes[decryptedBytes.length - 1];

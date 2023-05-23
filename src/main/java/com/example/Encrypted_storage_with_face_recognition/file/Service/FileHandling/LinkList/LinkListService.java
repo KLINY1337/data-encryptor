@@ -22,6 +22,12 @@ public class LinkListService {
     private List<Link> linkList;
     private final String linkListFilename;
 
+    /**
+
+     * Constructs a LinkListService with the specified links list filename.
+
+     * @param linksListFilename The filename of the links list.
+     */
     public LinkListService(@Value("${links.list.filename}") String linksListFilename){
 
         this.linkListFilename = linksListFilename;
@@ -36,6 +42,13 @@ public class LinkListService {
         }
     }
 
+    /**
+
+     * Fills the link list by reading serialized Link objects from the specified file.
+     * @throws RuntimeException if an error occurs while filling the link list
+     * @throws IOException if an I/O error occurs
+     * @throws ClassNotFoundException if the class of a serialized object cannot be found
+     */
     private void fillLinkList() {
 
         try {
@@ -51,6 +64,12 @@ public class LinkListService {
         }
     }
 
+    /**
+
+     * Adds a new Link to the link list with the specified decrypted file name and encrypted file name.
+     * @param decryptedFileName The name of the decrypted file to be added to the link list.
+     * @param encryptedFileName The name of the encrypted file to be added to the link list.
+     */
     public void addLinkToList(String decryptedFileName, String encryptedFileName){
 
         Link link = new Link(decryptedFileName, encryptedFileName);
@@ -58,16 +77,32 @@ public class LinkListService {
         linkList.add(link);
     }
 
+    /**
+
+     * Returns the current link list.
+     * @return The list of links.
+     */
     public List<Link> getLinkList() {
 
         return linkList;
     }
 
+    /**
+
+     * Checks if the link list exists.
+     * @return {@code true} if the link list is not empty, {@code false} otherwise.
+     */
     public boolean isLinkListExists() {
 
         return !linkList.isEmpty();
     }
 
+    /**
+
+     * Writes the current link list to a file before the LinkListService is destroyed.
+     * @throws RuntimeException if an error occurs while writing the link list to the file
+     * @throws IOException if an I/O error occurs
+     */
     @PreDestroy
     public void writeLinkListToFile(){
 

@@ -45,6 +45,16 @@ public class DecryptionService {
         this.fileMetaDataService = fileMetaDataService;
     }
 
+    /**
+
+     * Decrypts a file and returns the decrypted data as a map of byte arrays.
+
+     * @param file the file to be decrypted
+
+     * @return a map containing the decrypted file data, including the decrypted bytes, decrypted bytes digest, and the file alias
+
+     * @throws RuntimeException if an error occurs during the decryption process
+     */
     public Map<String, byte[]> decrypt(File file){
 
         try {
@@ -81,6 +91,16 @@ public class DecryptionService {
         }
     }
 
+    /**
+
+    * Decrypts the provided byte array using the specified secret key and returns the decrypted bytes.
+    * @param fileBytes the byte array to be decrypted
+    * @param secretKey the secret key used for decryption
+    * @return the decrypted byte array
+    * @throws IOException if an I/O error occurs
+    * @throws IllegalBlockSizeException if the input data length is not a multiple of the block size or if padding is incorrectly applied
+    * @throws BadPaddingException if the input data has been corrupted or if padding is incorrectly applied
+     */
     private byte[] getDecryptedBytes(byte[] fileBytes, SecretKey secretKey) throws IOException, IllegalBlockSizeException, BadPaddingException {
 
         Cipher cipher = cipherService.getCipher(Cipher.DECRYPT_MODE, secretKey);

@@ -24,6 +24,13 @@ public class DigestService {
         this.hashingMethod = hashingMethod;
     }
 
+    /**
+
+     * Calculates the digest (hash) of the provided byte array using the specified hashing method.
+     * @param plainText the byte array to calculate the digest for
+     * @return the calculated digest as a byte array
+     * @throws RuntimeException if the specified hashing method is not available
+     */
     public byte[] getDigest(byte[] plainText) {
 
         try {

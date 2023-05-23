@@ -38,6 +38,14 @@ public class SecretKeyService {
         this.digestService = digestService;
     }
 
+
+    /**
+
+     * Generates and returns a SecretKey using the specified generation method.
+     * @return the generated SecretKey
+     * @throws RuntimeException if an error occurs during the generation of the SecretKey
+     * @throws NoSuchAlgorithmException if the specified generation method is not available
+     */
     public SecretKey getSecretKey() {
 
         try {
@@ -54,6 +62,12 @@ public class SecretKeyService {
         }
     }
 
+    /**
+
+     * Generates and returns a random key alias.
+
+     * @return the generated key alias
+     */
     public String getKeyAlias(){
 
         SecureRandom random = new SecureRandom();
@@ -69,6 +83,16 @@ public class SecretKeyService {
         return stringBuilder.toString();
     }
 
+    /**
+
+     * Generates and returns a key password based on the provided encrypted bytes and encrypted bytes digest.
+
+     * @param encryptedBytes the encrypted bytes
+
+     * @param encryptedBytesDigest the digest (hash) of the encrypted bytes
+
+     * @return the generated key password
+     */
     public String getKeyPassword(byte[] encryptedBytes, byte[] encryptedBytesDigest){
 
         byte[] shookBytesArray = ByteShaker.getShookBytesArray(encryptedBytes, encryptedBytesDigest);
@@ -83,6 +107,15 @@ public class SecretKeyService {
 
         return Base64.getEncoder().encodeToString(digestService.getDigest(shookBytesArray));
     }
+
+    /**
+
+     * Generates and returns a ProtectionParameter for protecting a KeyStore entry, based on the provided
+     * encrypted bytes and encrypted bytes digest.
+     * @param encryptedBytes the encrypted bytes
+     * @param encryptedBytesDigest the digest (hash) of the encrypted bytes
+     * @return the generated ProtectionParameter
+     */
 
     public KeyStore.ProtectionParameter getEntryPassword(byte[] encryptedBytes, byte[] encryptedBytesDigest) {
 

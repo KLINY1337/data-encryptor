@@ -30,6 +30,16 @@ public class FileTransferService {
         this.linkListService = linkListService;
     }
 
+    /**
+
+     * Uploads a file by saving it locally, encrypting it, and storing the encrypted file. It also adds a link to the link list for future reference.
+
+     * @param multipartFile The file to be uploaded, wrapped in a {@link MultipartFile} object.
+
+     * @return The encrypted file that has been uploaded.
+
+     * @throws RuntimeException If an error occurs during the file upload or encryption process.
+     */
     public File uploadFile(MultipartFile multipartFile){
 
         File file = new File(Objects.requireNonNull(multipartFile.getOriginalFilename())); // create a new file with the original filename
@@ -57,6 +67,17 @@ public class FileTransferService {
         return encryptedFile;
     }
 
+
+    /**
+
+     * Downloads a file by decrypting it and storing the decrypted file locally.
+
+     * @param file The file to be downloaded.
+
+     * @return The decrypted file that has been downloaded.
+
+     * @throws RuntimeException If an error occurs during the decryption process or file conversion process.
+     */
     public File downloadFile(File file){
 
         Map<String, byte[]> fileData = decryptionService.decrypt(file);
@@ -70,6 +91,13 @@ public class FileTransferService {
         return fileConverterService.convertAndSave(filePath, fileBytes);
     }
 
+    /**
+
+     * Downloads a file with the given encrypted file name by decrypting it and storing the decrypted file locally.
+     * @param encryptedFileName The name of the encrypted file to be downloaded.
+     * @return The decrypted file that has been downloaded.
+     * @throws RuntimeException If an error occurs during the decryption process or file conversion process.
+     */
     public File downloadFile(String encryptedFileName){
 
         return downloadFile(new File("encrypted-files/" + encryptedFileName));

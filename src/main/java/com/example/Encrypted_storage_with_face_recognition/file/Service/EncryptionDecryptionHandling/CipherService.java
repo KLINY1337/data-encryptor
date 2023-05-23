@@ -25,6 +25,18 @@ public class CipherService {
 
         this.encryptionMethod = encryptionMethod;
     }
+
+    /**
+    * Returns a {@link Cipher} object for encryption or decryption based on the specified mode and secret key.
+
+    * @param MODE the encryption or decryption mode (use {@link Cipher#ENCRYPT_MODE} or {@link Cipher#DECRYPT_MODE})
+
+    * @param secretKey the secret key used for encryption or decryption
+
+    * @return a {@link Cipher} object configured for the specified mode and secret key
+
+    * @throws RuntimeException if an error occurs during the initialization of the cipher
+     */
     public Cipher getCipher(int MODE,SecretKey secretKey) {
 
         try {
