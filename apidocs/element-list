@@ -1,0 +1,8 @@
+com.example.Encrypted_storage_with_face_recognition
+com.example.Encrypted_storage_with_face_recognition.face
+com.example.Encrypted_storage_with_face_recognition.file.Controller
+com.example.Encrypted_storage_with_face_recognition.file.Service.EncryptionDecryptionHandling
+com.example.Encrypted_storage_with_face_recognition.file.Service.FileHandling
+com.example.Encrypted_storage_with_face_recognition.file.Service.FileHandling.LinkList
+com.example.Encrypted_storage_with_face_recognition.file.Util
+com.example.Encrypted_storage_with_face_recognition.Security.Config
