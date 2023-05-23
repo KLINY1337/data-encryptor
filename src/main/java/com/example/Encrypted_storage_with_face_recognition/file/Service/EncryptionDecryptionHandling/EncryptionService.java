@@ -53,7 +53,7 @@ public class EncryptionService {
 
         try {
 
-            byte[] fileBytes  = Files.readAllBytes(Path.of(file.getAbsolutePath()));
+            byte[] fileBytes  = Files.readAllBytes(Path.of(file.getPath()));
             byte[] fileMetaData = fileMetaDataService.getFileMetaData(file);
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
