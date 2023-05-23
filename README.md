@@ -34,12 +34,12 @@
     <img src="for-introduction/logo.png" alt="Logo" width="240" height="240">
   </a>
 
-<h3 align="center">Your Personal Secured Data Storage!</h3>
+<h3 align="center">Your Personal File Encryptor!</h3>
 
   <p align="center">
     face-vault-spring-application
     <br />
-    <a href="https://github.com/KLINY1337/data-storage-with-face-recognition-authorization"><strong>Explore the docs »</strong></a>
+    <a href="https://kliny1337.github.io/data-storage-with-face-recognition-authorization/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/KLINY1337/data-storage-with-face-recognition-authorization">View Demo</a>
@@ -85,11 +85,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://github.com/KLINY1337/data-storage-with-face-recognition-authorization/blob/master/for-introduction/features.png)
 
-FaceVault is a cutting-edge data storage application designed to provide the highest level of security and privacy to its users. The application uses advanced facial recognition technology to grant access to authorized individuals, ensuring that only authorized users can view and manage the stored data.
-
-With FaceVault, you can store all your sensitive data, including passwords, financial information, personal documents, and more, knowing that your data is fully protected. The application features a user-friendly interface that allows you to easily upload, organize, and manage your files, all while keeping them safe from prying eyes.
-
-The facial recognition technology used in FaceVault is highly accurate and reliable, providing an additional layer of security to the already robust encryption and authentication systems in place. This means that you can have peace of mind knowing that your data is secure, and that only you or authorized individuals can access it.
+The File Encryptor project aims to develop a robust and secure application for encrypting files, ensuring the confidentiality and integrity of sensitive data. This project addresses the growing need for file encryption, especially in situations where privacy and protection against unauthorized access are crucial.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -109,6 +105,10 @@ The facial recognition technology used in FaceVault is highly accurate and relia
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Documentation Built With
+* [![Javadoc][Javadoc.js]][Javadoc-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- GETTING STARTED -->
@@ -125,32 +125,12 @@ This is an example of how to list things you need to use the software and how to
   npm install npm@latest -g
   ```
 
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/KLINY1337/data-storage-with-face-recognition-authorization.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://kliny1337.github.io/data-storage-with-face-recognition-authorization)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -210,4 +190,7 @@ Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-a
 [Faces-url]: https://mvnrepository.com/artifact/org.openimaj/faces
 [Image-feature-extraction.js]: https://img.shields.io/badge/OpenImaj-Image%20feature%20extraction-ffffff?style=for-the-badge&logo=&logoColor=g
 [Image-feature-extraction-url]: https://mvnrepository.com/artifact/org.openimaj/image-feature-extraction
+
+[Javadoc-url]: https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html
+[Javadoc.js]: https://img.shields.io/badge/Javadoc-ffffff?style=for-the-badge&logo=readthedocs&logoColor=g
 
