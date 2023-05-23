@@ -39,7 +39,7 @@
   <p align="center">
     face-vault-spring-application
     <br />
-    <a href="https://github.com/KLINY1337/data-storage-with-face-recognition-authorization"><strong>Explore the docs »</strong></a>
+    <a href="https://kliny1337.github.io/data-storage-with-face-recognition-authorization/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/KLINY1337/data-storage-with-face-recognition-authorization">View Demo</a>
@@ -109,6 +109,10 @@ The facial recognition technology used in FaceVault is highly accurate and relia
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Documentation Built With
+* [![Javadoc][Javadoc.js]][Javadoc-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- GETTING STARTED -->
@@ -124,26 +128,6 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm install npm@latest -g
   ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/KLINY1337/data-storage-with-face-recognition-authorization.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -210,4 +194,7 @@ Project Link: [https://github.com/KLINY1337/data-storage-with-face-recognition-a
 [Faces-url]: https://mvnrepository.com/artifact/org.openimaj/faces
 [Image-feature-extraction.js]: https://img.shields.io/badge/OpenImaj-Image%20feature%20extraction-ffffff?style=for-the-badge&logo=&logoColor=g
 [Image-feature-extraction-url]: https://mvnrepository.com/artifact/org.openimaj/image-feature-extraction
+
+[Javadoc-url]: https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html
+[Javadoc.js]: https://img.shields.io/badge/Javadoc-ffffff?style=for-the-badge&logo=readthedocs&logoColor=g
 
