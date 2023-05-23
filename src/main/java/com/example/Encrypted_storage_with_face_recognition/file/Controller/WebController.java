@@ -15,8 +15,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping/*(value = "/api")*/
@@ -89,6 +91,26 @@ public class WebController {
     @GetMapping(value = "/getLinkList")
     public List<Link> getLinkList() {
         return linkListService.getLinkList();
+    }
+
+
+    @GetMapping(value = "/getLinkList/mock")
+    public ResponseEntity<List<Map<String, String>>> getFiles() {
+        List<Map<String, String>> fileList = new ArrayList<>();
+
+        // Sample file data
+        fileList.add(createFileEntry("document.pdf", "encrypted_document.pdf"));
+        fileList.add(createFileEntry("image.jpg", "encrypted_image.jpg"));
+        fileList.add(createFileEntry("video.mp4", "encrypted_video.mp4"));
+
+        return ResponseEntity.status(HttpStatus.OK).body(fileList);
+    }
+
+    private Map<String, String> createFileEntry(String fileName, String encryptedFileName) {
+        Map<String, String> fileEntry = new HashMap<>();
+        fileEntry.put("decryptedFileName", fileName);
+        fileEntry.put("encryptedFileName", encryptedFileName);
+        return fileEntry;
     }
 
 

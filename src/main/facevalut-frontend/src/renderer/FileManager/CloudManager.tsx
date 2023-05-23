@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import EncodedFileList from 'renderer/EncodedFileList';
 import './ManagerStyle.css';
 import Popup from "./UploadPopup";
 
@@ -42,26 +43,29 @@ function CloudManager(){
       <div className="leftsection">
         <div className="leftsection__header">
           <div className="iconcircle"></div>
-          <h1>header1</h1>
+          <h1>User</h1>
         </div>
 
         <div className="leftsection__body">
+          <p>Your total uploaded files: 5</p>
         </div>
 
       </div>
 
       <div className="rightsection">
         <div className="rightsection__header">
-          <h1>All Files</h1>
-          <button onClick={handleButtonClick}>Upload</button>
+          <h1 className="filesHeader">All Files</h1>
+          <button className="uploadButton" onClick={handleButtonClick}>Upload</button>
           <Popup isOpen={popupOpen} onClose={handleClosePopup} />
         </div>
 
         <div className="rightsection__body">
-          <h1>FILE  showcase</h1>
-          <h2>temp download button</h2>
-          <p>EnterFilename from encrypted-files/ and submit</p>
-          <form onSubmit={handleDownload}>
+
+          <EncodedFileList/>
+
+          <h2 className="downloadHeader">Download section</h2>
+          <p>Enter filename from section above and submit</p>
+          <form onSubmit={handleDownload} className="downloadForm">
             <input type="text" name="text" />
             <input type="submit" value="Submit" />
 
