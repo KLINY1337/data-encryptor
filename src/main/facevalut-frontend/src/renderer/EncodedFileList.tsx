@@ -22,7 +22,7 @@ function EncodedFileList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/getLinkList/mock', {
+        const response = await fetch('http://localhost:8080/getLinkList', {
           mode: 'cors',
         });
         if (!response.ok) {
