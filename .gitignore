@@ -51,3 +51,8 @@ bower_components
 psd
 thumb
 sketch
+
+### release build ###
+src/main/facevalut-frontend/release
+src/main/facevalut-frontend/.*
+src/main/facevalut-frontend/.erb

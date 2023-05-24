@@ -10,6 +10,7 @@ function DisplayResponse() {
   useEffect(() => {
     fetch('http://localhost:8080/isKeyStoreExist', { mode: 'cors' })
       .then((response) => response.json())
+      // eslint-disable-next-line promise/always-return
       .then((data) => {
         setResponseData(data);
       })

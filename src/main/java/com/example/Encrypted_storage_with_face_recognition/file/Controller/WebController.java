@@ -93,6 +93,11 @@ public class WebController {
         return linkListService.getLinkList();
     }
 
+    @GetMapping(value = "/getLinkListLength")
+    public int getLinkListLength() {
+        return linkListService.getLinkList().size();
+    }
+
 
     @GetMapping(value = "/getLinkList/mock")
     public ResponseEntity<List<Map<String, String>>> getFiles() {
