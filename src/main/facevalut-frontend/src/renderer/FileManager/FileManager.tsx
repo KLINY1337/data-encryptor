@@ -33,10 +33,9 @@ function FileManager() {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Select file to upload:
         <input type="file" onChange={handleFileChange} />
       </label>
-      <br />
+
       <button type="submit">Upload</button>
     </form>
   );

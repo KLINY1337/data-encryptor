@@ -22,7 +22,7 @@ function EncodedFileList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/getLinkList', {
+        const response = await fetch('http://localhost:8080/getLinkList/mock', {
           mode: 'cors',
         });
         if (!response.ok) {
@@ -42,19 +42,35 @@ function EncodedFileList() {
   return (
     <div>
       {responseData ? (
-        <ul>
-          {responseData.map((item) => (
-            <li>
-              {item.decryptedFileName} {item.encryptedFileName}{' '}
-              <button
-                type="button"
-                onClick={() => handleDownload(item.encryptedFileName)}
-              >
-                Download
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div className="tableDiv">
+          <table className={"fileTable"}>
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>EncryptedName</th>
+              <th>Vault</th>
+            </tr>
+            </thead>
+            <tbody>
+            {responseData.map((item) => (
+
+              <tr>
+                <td>{item.decryptedFileName}</td>
+                <td>{item.encryptedFileName}</td>
+                <td>
+                  <button
+                    type="button"
+                    onClick={() => handleDownload(item.encryptedFileName)}
+                  >
+                    Decrypt
+                  </button>
+                </td>
+              </tr>
+            ))}
+            </tbody>
+          </table>
+        </div>
+
       ) : (
         <div>Loading...</div>
       )}

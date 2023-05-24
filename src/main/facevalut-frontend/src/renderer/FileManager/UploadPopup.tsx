@@ -8,20 +8,19 @@ type PopupProps = {
 
 const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
   return (
-    <>
+    <div className={"popup"}>
       {isOpen && (
         <>
           <div className="popup-overlay" />
           <div className="popupUpload">
           <div className="popup-content">
-            <h2>Popup Title</h2>
             <FileManager/>
             <button onClick={onClose}>Close</button>
           </div>
         </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 

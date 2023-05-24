@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import EncodedFileList from 'renderer/EncodedFileList';
 import './ManagerStyle.css';
 import Popup from './UploadPopup';
+import logowhite from '/images/facevaultwhite.png';
+import logoblack from '/images/facevaultblack.png';
 
 function CloudManager() {
   const [popupOpen, setPopupOpen] = useState(false);
 
   const [numUploadedFiles, setNumUploadedFiles] = useState(0);
+
+  const [manualSect, setManualSect] = useState(false);
 
   const handleButtonClick = () => {
     setPopupOpen(true);
@@ -15,6 +19,10 @@ function CloudManager() {
   const handleClosePopup = () => {
     setPopupOpen(false);
   };
+
+  const handleManual = () => {
+    setManualSect(!manualSect);
+  }
 
   // @ts-ignore
   const handleDownload = async (event) => {
@@ -60,35 +68,56 @@ function CloudManager() {
   }, []);
   return (
     <div className="MainApp">
-      <div className="leftsection">
-        <div className="leftsection__header">
-          <div className="iconcircle" />
-          <h1>User</h1>
-        </div>
+      {/*<div className="leftsection">*/}
+      {/*  <div className="leftsection__header">*/}
+      {/*    <div className="iconcircle" />*/}
+      {/*    <h1>User</h1>*/}
+      {/*  </div>*/}
 
-        <div className="leftsection__body">
-          <p>Your total uploaded files: {numUploadedFiles}</p>
-        </div>
-      </div>
+      {/*  <div className="leftsection__body">*/}
+      {/*    <p>Your total uploaded files: {numUploadedFiles}</p>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
 
       <div className="rightsection">
         <div className="rightsection__header">
-          <h1 className="filesHeader">All Files</h1>
-          <button className="uploadButton" onClick={handleButtonClick}>
-            Upload
-          </button>
-          <Popup isOpen={popupOpen} onClose={handleClosePopup} />
+          <div className="logo">
+            <img src={logoblack} alt="logo" height="70px"/>
+            <h1 className="filesHeader">Your FaceVault</h1>
+
+          </div>
+
+          {!popupOpen && (
+            <button onClick={handleButtonClick}>
+              Encrypt
+            </button>
+          )}
+
+          {popupOpen && (
+            <div className="popupsect">
+              <Popup  isOpen={popupOpen} onClose={handleClosePopup} />
+            </div>
+          )}
+
         </div>
 
         <div className="rightsection__body">
           <EncodedFileList />
 
-          <h2 className="downloadHeader">Download section</h2>
-          <p>Enter filename from section above and submit</p>
-          <form onSubmit={handleDownload} className="downloadForm">
-            <input type="text" name="text" />
-            <input type="submit" value="Submit" />
-          </form>
+          <div className="footer">
+            <h2>Amount of encrypted files: {numUploadedFiles}</h2>
+            <h2 className="manualDownloadHeader" onClick={handleManual}>Download manually</h2>
+            {manualSect && (
+              <div>
+                <p>Enter filename from section above and submit</p>
+                <form onSubmit={handleDownload} className="downloadForm">
+                  <input type="text" name="text" />
+                  <input type="submit" value="Submit" />
+                </form>
+              </div>
+            )}
+          </div>
+
         </div>
       </div>
     </div>

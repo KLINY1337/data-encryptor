@@ -37,7 +37,7 @@ function FileUpload() {
         <input type="file" onChange={handleFileChange} />
       </label>
       <br />
-      <button type="submit">Upload</button>
+      <button type="submit">Encrypt</button>
     </form>
   );
 }

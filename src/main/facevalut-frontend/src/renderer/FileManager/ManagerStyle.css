@@ -7,6 +7,7 @@
 
 .leftsection {
   width: 20%;
+  min-width: 200px;
   height: 100vh;
   background-color: #D9D9D9;
   display: flex;
@@ -23,12 +24,12 @@
 }
 
 .rightsection {
-  width: 80%;
+  width: 100%;
   height: 100vh;
 }
 
 .rightsection__header {
-  height: 10%;
+  height: 5em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -77,4 +78,123 @@
 
 .blur {
   filter: blur(5px);
+}
+
+
+button {
+  --text-base: 200deg, 55%, 40%;
+  --text-hover: 220deg, 72%, 86%;
+  --shadow-start: 52deg, 100%, 72%;
+  --shadow-end: 220deg, 90%, 50%;
+  --shadow-inner: 220deg, 90%, 62%;
+  all: unset;
+  color: hsla(var(--text-base), 1);
+  font: 600 0.925rem/1.2 Raleway, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.85em;
+  max-width: 100%;
+  width: 7em;
+  background: inherit;
+  background-clip: padding-box;
+  border: 5px solid hsla(var(--text-base), 1);
+  border-radius: 2em;
+  cursor: pointer;
+  position: relative;
+  transition: 0.25s ease-out;
+  margin: 0.5em;
+}
+button::before, button::after {
+  content: "";
+  border-radius: inherit;
+  transition: inherit;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+button::before {
+  inset: -0.2em;
+  z-index: -1;
+  background: linear-gradient(hsla(var(--shadow-start), 1), hsla(var(--shadow-end), 1));
+  filter: blur(1.2em) saturate(1.2);
+  transform-origin: bottom;
+  transform: scaleY(0.5);
+  opacity: 0;
+}
+button::after {
+  box-shadow: inset 0 0 0 1px #fff, 0 0 0 4px rgba(255, 255, 255, 0.7), 1px 1px 0 4px #fff;
+  mix-blend-mode: overlay;
+  opacity: 0;
+}
+button:hover, button:focus {
+  color: hsla(var(--text-hover), 1);
+  border-color: transparent;
+  box-shadow: inset 0 1.4em 0 hsla(var(--shadow-inner), 0.1), inset 0 0 1.4em hsla(var(--shadow-inner), 0.32), 0 1px 1px hsla(var(--shadow-inner), 0.32);
+}
+button:hover::before, button:hover::after, button:focus::before, button:focus::after {
+  transform: none;
+  opacity: 1;
+}
+
+.popup-content form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
+
+.logo img {
+  margin: 10px;
+}
+
+/*.fileTable {*/
+/*  width: 100vw;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: center;*/
+/*  justify-content: space-between;*/
+/*}*/
+
+/*.fileTable tr {*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*  align-items: center;*/
+/*  justify-content: space-between;*/
+/*}*/
+
+
+.tableDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fileTable {
+  width: 70vw;
+}
+td {
+  text-align: center;
+}
+
+
+.manualDownloadHeader {
+  color: #003078;
+}
+
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
 }
