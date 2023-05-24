@@ -18,24 +18,29 @@ const handleDownload = async (encoded: any) => {
 
 function EncodedFileList() {
   const [responseData, setResponseData] = useState(null);
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/getLinkList', {
+        mode: 'cors',
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      setResponseData(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:8080/getLinkList', {
-          mode: 'cors',
-        });
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const data = await response.json();
-        setResponseData(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    let interval = setInterval(() => {
+      fetchData();
 
-    fetchData();
+    },2000)
+
+    return () => clearInterval(interval);
+
   }, []);
 
   // @ts-ignore
