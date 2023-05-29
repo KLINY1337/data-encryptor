@@ -99,9 +99,6 @@ The File Encryptor project aims to develop a robust and secure application for e
 * [![Lombok][Lombok.js]][Lombok-url]
 * [![Spring-boot][Spring-boot.js]][Spring-boot-url]
 * [![Spring-web][Spring-web.js]][Spring-web-url]
-* [![Webcam-capture][Webcam-capture.js]][Webcam-capture-url]
-* [![Faces][Faces.js]][Faces-url]
-* [![Image-feature-extraction][Image-feature-extraction.js]][Image-feature-extraction-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
